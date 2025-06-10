@@ -17,12 +17,10 @@ public class Controller {
 
 	@Autowired
 	private PartyService partyService;
-//@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/test")
 	ResponseEntity<User> testAPI() {
 		User user = new User();
-		user.setUsername("Pooja");
-		user.setPassword("abs");
+		
 		return new ResponseEntity<>(user,HttpStatus.OK);
 	}
 

@@ -1,4 +1,7 @@
 package com.party.dashboard.service;
+import java.util.UUID;
+
+
 
 import com.party.dashboard.dbrepository.PartyMongoRepository;
 import com.party.dashboard.dbrepository.UserMongoRepository;
@@ -34,27 +37,31 @@ public class PartyServiceImpl implements PartyService {
         if(partyExistOrNot.isPresent()){
             throw new DataExistException("party already exist");
         }
-
         List<Party> parties = partyMongoRepository.findAll();
-        userData.setPartyId(String.valueOf(parties.size()+1));
+        userData.setPartyId(String.valueOf(parties.size() + 1)); 
         return partyMongoRepository.save(userData);
     }
 
+ 
     public PartyMongoRepository getPartyMongoRepository() {
 		return partyMongoRepository;
 	}
+
 
 	public void setPartyMongoRepository(PartyMongoRepository partyMongoRepository) {
 		this.partyMongoRepository = partyMongoRepository;
 	}
 
+
 	public UserMongoRepository getUserMongoRepository() {
 		return userMongoRepository;
 	}
 
+
 	public void setUserMongoRepository(UserMongoRepository userMongoRepository) {
 		this.userMongoRepository = userMongoRepository;
 	}
+
 
 	@Override
     public Party getParty(String partyId) {
@@ -92,6 +99,6 @@ public class PartyServiceImpl implements PartyService {
 
     @Override
     public void deleteParty(String id) {
-        partyMongoRepository.deleteById(id);
+        partyMongoRepository.deleteByPartyId(id);
     }
 }
