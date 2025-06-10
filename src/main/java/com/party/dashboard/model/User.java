@@ -1,9 +1,9 @@
 package com.party.dashboard.model;
 
-
+import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-
+@Data
 @Document(collection = "user")
 public class User {
 
@@ -21,5 +21,6 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
 	
 }

@@ -12,7 +12,7 @@ import java.util.Optional;
 public interface PartyMongoRepository extends MongoRepository<Party, String> {
 
     Optional<Party> getByPartyId(String partyId);
-
+    void deleteByPartyId(String partyId);
     @Query(value = "{firstName:?0, lastName:?1}")
     Optional<Party> personExist(String firstName, String lastName);
 

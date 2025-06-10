@@ -20,9 +20,5 @@ public class ErrorTemplate {
 	public void setStatusCode(String statusCode) {
 		this.statusCode = statusCode;
 	}
-	public static Object builder() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+    
 }

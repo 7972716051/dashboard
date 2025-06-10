@@ -11,18 +11,21 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class GlobalExceptionHandler {
     @ExceptionHandler(DataNotFoundException.class)
     public ResponseEntity<ErrorTemplate> handleDataNotFoundException(DataNotFoundException ex) {
-    	ErrorTemplate errorTemplate=new ErrorTemplate();
-    	errorTemplate.setMessage(ex.getMessage());
-    	errorTemplate.setStatusCode(HttpStatus.NOT_FOUND.name());
+    	   ErrorTemplate errorTemplate = new ErrorTemplate();
+
+           errorTemplate .setMessage(ex.getMessage());
+           errorTemplate.setStatusCode(HttpStatus.NOT_FOUND.name());
+
         return new ResponseEntity<>(errorTemplate, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(DataExistException.class)
     public ResponseEntity<ErrorTemplate> handledDataExistException(DataExistException ex) {
-    	ErrorTemplate errorTemplate=new ErrorTemplate();
-    	errorTemplate.setMessage(ex.getMessage());
-    	errorTemplate.setStatusCode(HttpStatus.BAD_REQUEST.name());
+    	   ErrorTemplate errorTemplate = new ErrorTemplate();
 
-               return new ResponseEntity<>(errorTemplate, HttpStatus.BAD_REQUEST);
+           errorTemplate .setMessage(ex.getMessage());
+           errorTemplate.setStatusCode(HttpStatus.BAD_REQUEST.name());
+
+        return new ResponseEntity<>(errorTemplate, HttpStatus.BAD_REQUEST);
     }
 }
