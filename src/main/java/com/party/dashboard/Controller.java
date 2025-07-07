@@ -55,12 +55,14 @@ public class Controller {
 		return new ResponseEntity<>(response, HttpStatus.OK);
 
 	}
+	
 
 	@PutMapping("/party")
 	ResponseEntity<Party> updatePerson(@RequestBody Party party){
 		Party response = partyService.updateParty(party);
 		return new ResponseEntity<>(response, HttpStatus.OK);
 
+	
 	}
 
 	@GetMapping("/party")

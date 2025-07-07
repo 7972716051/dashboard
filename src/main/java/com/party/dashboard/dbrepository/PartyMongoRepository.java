@@ -15,5 +15,6 @@ public interface PartyMongoRepository extends MongoRepository<Party, String> {
     void deleteByPartyId(String partyId);
     @Query(value = "{firstName:?0, lastName:?1}")
     Optional<Party> personExist(String firstName, String lastName);
+	Party save(int randomId);
 
 }

@@ -1,5 +1,7 @@
 package com.party.dashboard.model;
 
+import java.util.Random;
+
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
@@ -17,11 +19,20 @@ public class Party {
     Address address;
     ContactChannel contactChannel;
     String genderIdentity;
-    String partyId;
+    private String partyId;
     private String occupation;
 	public String getId() {
 		return id;
 	}
+	public void generatePartyId() {
+        if (this.partyId == null) {
+            Random random = new Random();
+            int randomId = random.nextInt();
+            this.partyId = String.valueOf(randomId);
+            
+        }
+	}
+	
 	public void setId(String id) {
 		this.id = id;
 	}
@@ -72,6 +83,14 @@ public class Party {
 	}
 	public void setOccupation(String occupation) {
 		this.occupation = occupation;
+	}
+	public String getdob() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public void setdob(String getdob) {
+		// TODO Auto-generated method stub
+		
 	}
     
   

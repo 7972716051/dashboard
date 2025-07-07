@@ -16,4 +16,5 @@ public interface PartyService {
     List<User> getUsers();
     Party updateParty(Party userData);
     void deleteParty(String id);
+	
 }
