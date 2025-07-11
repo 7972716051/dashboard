@@ -32,7 +32,6 @@ public class Party {
             
         }
 	}
-	
 	public void setId(String id) {
 		this.id = id;
 	}
